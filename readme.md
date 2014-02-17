@@ -2,7 +2,7 @@
 
 **Support This Developer: http://www.amazon.co.jp/gp/registry/wishlist/ref=wish_list**
 
-* Original Plugin & Theme API by Kaspars Dambis (kaspars@konstruktors.com)
+* Original Plugin & Theme API by jeremyclark13, Kaspars Dambis
 * Modified by Takashi Kitajima ( http://2inc.org )
 
 ---
