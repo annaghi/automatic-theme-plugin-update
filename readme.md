@@ -1,9 +1,11 @@
 ## Automatic Theme & Plugin Updater for Self-Hosted Themes/Plugins
 
-**Support This Developer: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SE9ZVJUS324UC**
+**Support This Developer: http://www.amazon.co.jp/gp/registry/wishlist/ref=wish_list**
 
-*Any amount is always appreciated*
+* Original Plugin & Theme API by Kaspars Dambis (kaspars@konstruktors.com)
+* Modified by Takashi Kitajima ( http://2inc.org )
 
+---
 
 ## General Info
 
@@ -29,19 +31,19 @@ For themes and plugins that can't be submitted to official WordPress repository,
 
 * theme (folder for theme update checking)
     * update.php (file that can be included from functions.php of theme to check for updates)
-	
----------------	
-	
+
+---------------
+
 **Important:**
 
 *Change $api_url to your api server url in:*
 
-    /plugin/test-plugin-update/test-plugin-update.php 
-    /theme/update.php	
+    /plugin/test-plugin-update/test-plugin-update.php
+    /theme/update.php
 
 ## Adding new versions
 
-Edit the packages.php under api folder on your server.  Commented thoroughly throughout with sections that need to be changed to reflect themes/plugins that are to be updated.  
+Edit the packages.php under api folder on your server.  Commented thoroughly throughout with sections that need to be changed to reflect themes/plugins that are to be updated.
 
 ## Adding additional themes/plugins
 
@@ -49,8 +51,8 @@ Simply create another $package array with the key of the new theme/plugin slug a
 
 ## Child theme support
 
-Child themes are now supported.  If the theme being updated is meant to be a parent theme the standard theme/update.php from the theme file will work.  If the theme is a child theme of another theme comment out the parent theme section and uncomment the child theme section on the theme/update.php 
+Child themes are now supported.  If the theme being updated is meant to be a parent theme the standard theme/update.php from the theme file will work.  If the theme is a child theme of another theme comment out the parent theme section and uncomment the child theme section on the theme/update.php
 
 ## Securing Download location
 
-Downloads are now always secured by a md5 hash of the package file_name and timestamp of current date.  When downloading file current timestamp and timestamp of previous day are compared to key received from update request, if either match zip file is passed, and file can be downloaded. 
+Downloads are now always secured by a md5 hash of the package file_name and timestamp of current date.  When downloading file current timestamp and timestamp of previous day are compared to key received from update request, if either match zip file is passed, and file can be downloaded.
