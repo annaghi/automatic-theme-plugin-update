@@ -1,4 +1,4 @@
-## Automatic Theme & Plugin Updater for Self-Hosted Themes/Plugins
+## MW Automatic Theme Plugin Updater for Self-Hosted Themes/Plugins
 
 * Support This Developer: http://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 
@@ -9,7 +9,7 @@
 
 ## General Info
 
-For themes and plugins that can't be submitted to official WordPress repository, ie ... commercial themes/plugins/, non-gpl licensed, written for one client.
+For themes and plugins that can't be submitted to official WordPress repository, ie ... commercial themes/plugins/, written for one client.
 
 ### Folder structure
 * api (Folder to upload to server where updates will be housed)
@@ -19,27 +19,29 @@ For themes and plugins that can't be submitted to official WordPress repository,
     * download.php (validates md5 key of date and package zip file)
     * update (folder to hold all zip file updates for url masking - protected by .htaccess to disallow file listings)
 
-
 * update (default folder for holding theme and plugin zip files)
     * .htaccess (prevents indexing and viewing of any zip files in directory)
 
+* plugin-update.php (File to include in the plugin to check for updates)
 
-* plugin (folder for adding plugin update checking)
-    * test-plugin-update (simple plugin folder to show how update functions work)
-        * test-plugin-update.php (example plugin that only checks for updates to server)
+* theme-update.php (File to include in the theme to check for updates)
 
+## Setup
 
-* theme (folder for theme update checking)
-    * update.php (file that can be included from functions.php of theme to check for updates)
+*Example: Include to the parent theme:*
 
----------------
+    require_once( 'theme-update.php' );
+    $ATPU_Theme = new ATPU_Theme( 'http://example.jp/api/' );
 
-**Important:**
+*Example: Include to the child theme:*
 
-*Change $api_url to your api server url in:*
+    require_once( 'theme-update.php' );
+    $ATPU_Theme = new ATPU_Theme( 'http://example.jp/api/', 'child' );
 
-    /plugin/test-plugin-update/test-plugin-update.php
-    /theme/update.php
+*Example: Include to the plugin:*
+
+    require_once( 'plugin-update.php' );
+    $ATPU_Plugin = new ATPU_Plugin( 'http://example.jp/api/', 'ypur-plugin-slug' );
 
 ## Adding new versions
 
@@ -48,10 +50,6 @@ Edit the packages.php under api folder on your server.  Commented thoroughly thr
 ## Adding additional themes/plugins
 
 Simply create another $package array with the key of the new theme/plugin slug and add all the appropriate info.  When releasing the theme/plugin make sure that functions and variables are prefixed to prevent errors and allow multiple themes/plugins to be updated.
-
-## Child theme support
-
-Child themes are now supported.  If the theme being updated is meant to be a parent theme the standard theme/update.php from the theme file will work.  If the theme is a child theme of another theme comment out the parent theme section and uncomment the child theme section on the theme/update.php
 
 ## Securing Download location
 

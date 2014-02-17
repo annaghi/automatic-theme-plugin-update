@@ -1,36 +1,37 @@
 <?php
-/*
-Plugin Name: Test Plugin Update
-Plugin URI: http://clark-technet.com
-Description: Test plugin updates
-Version: 0.9
-Author: Jeremy Clark
-Author URI: http://clark-technet.com
-*/
-
-
-/*
-// TEMP: Enable update check on every request. Normally you don't need this! This is for testing only!
-// NOTE: The
-//	if (empty($checked_data->checked))
-//		return $checked_data;
-// lines will need to be commented in the check_for_plugin_update function as well.
-
-set_site_transient('update_plugins', null);
-
-// TEMP: Show which variables are being requested when query plugin API
-add_filter('plugins_api_result', 'aaa_result', 10, 3);
-function aaa_result($res, $action, $args) {
-	print_r($res);
-	return $res;
-}
-// NOTE: All variables and functions will need to be prefixed properly to allow multiple plugins to be updated
-*/
-
-
+/**
+ * Name: ATPU_Plugin
+ * Description:
+ * Version: 1.0.0
+ * Author: Takashi Kitajima
+ * Author URI: http://2inc.org
+ * Created : February 18, 2013
+ * Modified:
+ * Package: MW Automatic Theme Plugin Update
+ *
+ * Original Author: jeremyclark13, Kaspars Dambis (kaspars@konstruktors.com)
+ * https://github.com/jeremyclark13/automatic-theme-plugin-update
+ *
+ * License: GPL2
+ *
+ * Copyright 2014 Takashi Kitajima (email : inc@2inc.org)
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License, version 2, as
+ * published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ */
 class ATPU_Plugin {
-	private $api_url = '';
-	private $plugin_slug = '';
+	private $api_url;
+	private $plugin_slug;
 
 	public function __construct( $api_url = '', $plugin_slug = '' ) {
 		if ( !$api_url ) {
@@ -113,6 +114,3 @@ class ATPU_Plugin {
 		return $res;
 	}
 }
-$ATPU_Plugin = new ATPU_Plugin( 'http://wordpress.local/api/', 'ypur-plugin-slug' );
-
-

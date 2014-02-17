@@ -1,14 +1,15 @@
 <?php
 /**
- * Name: automatic-theme-plugin-update
+ * Name: ATPU_Theme
  * Description:
  * Version: 1.0.0
  * Author: Takashi Kitajima
  * Author URI: http://2inc.org
- * Created : february 25, 2013
+ * Created : February 18, 2013
  * Modified:
+ * Package: MW Automatic Theme Plugin Update
  *
- * Original Author: jeremyclark13
+ * Original Author: jeremyclark13, Kaspars Dambis (kaspars@konstruktors.com)
  * https://github.com/jeremyclark13/automatic-theme-plugin-update
  *
  * License: GPL2
@@ -29,10 +30,10 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 class ATPU_Theme {
-	private $api_url = '';
-	private $theme_data = '';
-	private $theme_version = '';
-	private $theme_base = '';
+	private $api_url;
+	private $theme_data;
+	private $theme_version;
+	private $theme_base;
 
 	public function __construct( $api_url = '', $parent_or_child = 'parent' ) {
 		if ( !$api_url ) {
@@ -118,4 +119,3 @@ class ATPU_Theme {
 		return $res;
 	}
 }
-$ATPU_Theme = new ATPU_Theme( 'http://wordpress.local/api/' );

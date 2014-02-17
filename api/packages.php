@@ -1,7 +1,4 @@
 <?php
-/**
- * Replace theme with theme stylesheet slug that the update is for
- */
 $packages['your-theme-slug'] = array(
 	'versions' => array(
 		/**
@@ -63,9 +60,6 @@ $packages['your-theme-slug'] = array(
 	),
 );
 
-/**
- * Replace plugin with the plugin slug that updates will be checking for
- */
 $packages['your-plugin-slug'] = array(
 	'versions' => array(
 		/**
