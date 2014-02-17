@@ -5,7 +5,7 @@
  * Version: 1.0.0
  * Author: Takashi Kitajima
  * Author URI: http://2inc.org
- * Created : February 18, 2013
+ * Created : February 18, 2014
  * Modified:
  * Package: MW Automatic Theme Plugin Update
  *

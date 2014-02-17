@@ -41,7 +41,7 @@ For themes and plugins that can't be submitted to official WordPress repository,
 *Example: Include to the plugin:*
 
     require_once( 'plugin-update.php' );
-    $ATPU_Plugin = new ATPU_Plugin( 'http://example.jp/api/', 'ypur-plugin-slug' );
+    $ATPU_Plugin = new ATPU_Plugin( 'http://example.jp/api/', 'your-plugin-slug' );
 
 ## Adding new versions
 
