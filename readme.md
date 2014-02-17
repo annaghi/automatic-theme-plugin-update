@@ -1,6 +1,6 @@
 ## Automatic Theme & Plugin Updater for Self-Hosted Themes/Plugins
 
-**Support This Developer: http://www.amazon.co.jp/gp/registry/wishlist/ref=wish_list**
+* Support This Developer: http://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 
 * Original Plugin & Theme API by jeremyclark13, Kaspars Dambis
 * Modified by Takashi Kitajima ( http://2inc.org )
