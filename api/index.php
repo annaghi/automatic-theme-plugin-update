@@ -96,7 +96,7 @@ class Automatic_Theme_Plugin_Update {
 				print serialize( $data );
 				break;
 			case 'theme_update' :
-				$update_info = array_to_object( $latest_package );
+				$update_info = $this->array_to_object( $latest_package );
 				$update_data = array( );
 				$update_data['package'] = $update_info->package;
 				$update_data['new_version'] = $update_info->version;

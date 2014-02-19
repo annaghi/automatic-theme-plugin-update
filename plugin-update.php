@@ -46,10 +46,6 @@ class ATPU_Plugin {
 
 		add_filter( 'pre_set_site_transient_update_plugins', array( $this, 'check_for_plugin_update' ) );
 		add_filter( 'plugins_api', array( $this, 'plugin_api_call' ), 10, 3 );
-
-		if ( is_admin() ) {
-			$current = get_transient( 'update_themes' );
-		}
 	}
 
 	public function check_for_plugin_update( $checked_data ) {
