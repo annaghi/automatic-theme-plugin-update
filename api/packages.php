@@ -19,7 +19,7 @@ $packages['your-theme-slug'] = array(
 			 * file_name is the name of the file in the update folder.
 			 * theme.zip is the same as file_name
 			 */
-			'package' => 'http://wordpress.local/download.php?key=' . md5( 'theme.zip' . mktime( 0, 0, 0, date( 'm' ), date( 'd' ), date( 'Y' ) ) ),
+			'package' => 'http://your-api-server/api/download.php?key=' . md5( 'theme.zip' . mktime( 0, 0, 0, date( 'm' ), date( 'd' ), date( 'Y' ) ) ),
 
 			/**
 			 * File name of theme zip file
@@ -110,7 +110,7 @@ $packages['your-plugin-slug'] = array(
 			 * file_name is the name of the file in the update folder.
 			 * plugin.zip is the same as file_name
 			 */
-			'package' => 'http://wordpress.local/api/download.php?key=' . md5( 'plugin.zip' . mktime( 0, 0, 0, date( 'm' ), date( 'd' ), date( 'Y' ) ) ),
+			'package' => 'http://your-api-server/api/download.php?key=' . md5( 'plugin.zip' . mktime( 0, 0, 0, date( 'm' ), date( 'd' ), date( 'Y' ) ) ),
 
 			/**
 			 * File name of plugin zip file

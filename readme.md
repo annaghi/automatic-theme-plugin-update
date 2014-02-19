@@ -31,17 +31,17 @@ For themes and plugins that can't be submitted to official WordPress repository,
 *Example: Include to the parent theme:*
 
     require_once( 'theme-update.php' );
-    $ATPU_Theme = new ATPU_Theme( 'http://example.jp/api/' );
+    $ATPU_Theme = new ATPU_Theme( 'http://your-api-server/api/' );
 
 *Example: Include to the child theme:*
 
     require_once( 'theme-update.php' );
-    $ATPU_Theme = new ATPU_Theme( 'http://example.jp/api/', 'child' );
+    $ATPU_Theme = new ATPU_Theme( 'http://your-api-server/api/', 'child' );
 
 *Example: Include to the plugin:*
 
     require_once( 'plugin-update.php' );
-    $ATPU_Plugin = new ATPU_Plugin( 'http://example.jp/api/', 'your-plugin-slug' );
+    $ATPU_Plugin = new ATPU_Plugin( 'http://your-api-server/api/', 'your-plugin-slug' );
 
 ## Adding new versions
 
