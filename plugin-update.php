@@ -2,11 +2,11 @@
 /**
  * Name: ATPU_Plugin
  * Description:
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Takashi Kitajima
  * Author URI: http://2inc.org
  * Created : February 18, 2014
- * Modified:
+ * Modified: June 10, 2014
  * Package: MW Automatic Theme Plugin Update
  *
  * Original Author: jeremyclark13, Kaspars Dambis (kaspars@konstruktors.com)
@@ -67,7 +67,7 @@ class ATPU_Plugin {
 			'user-agent' => 'WordPress/' . $wp_version . '; ' . home_url(),
 		);
 		$raw_response = wp_remote_post( $this->api_url, $request_string );
-		if ( !is_wp_error( $raw_response ) && $raw_response['response']['code'] == 200 ) {
+		if ( !is_wp_error( $raw_response ) && $raw_response['response']['code'] == 200 && is_serialized( $raw_response['body'] ) ) {
 			$response = unserialize( $raw_response['body'] );
 		}
 
