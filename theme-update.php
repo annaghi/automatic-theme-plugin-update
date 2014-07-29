@@ -2,17 +2,17 @@
 /**
  * Name: ATPU_Theme
  * Description:
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author: Takashi Kitajima
  * Author URI: http://2inc.org
  * Created : February 18, 2014
- * Modified: June 10, 2014
+ * Modified: July 29, 2014
  * Package: MW Automatic Theme Plugin Update
  *
  * Original Author: jeremyclark13, Kaspars Dambis (kaspars@konstruktors.com)
  * https://github.com/jeremyclark13/automatic-theme-plugin-update
  *
- * License: GPL2
+ * License: GPLv2
  *
  * Copyright 2014 Takashi Kitajima (email : inc@2inc.org)
  *
@@ -93,6 +93,8 @@ class ATPU_Theme {
 
 		if ( !empty( $response ) ) {
 			$checked_data->response[$this->theme_base] = $response;
+		} else {
+			unset( $checked_data->response[$this->theme_base] );
 		}
 
 		return $checked_data;

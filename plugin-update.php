@@ -2,17 +2,17 @@
 /**
  * Name: ATPU_Plugin
  * Description:
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author: Takashi Kitajima
  * Author URI: http://2inc.org
  * Created : February 18, 2014
- * Modified: June 10, 2014
+ * Modified: July 29, 2014
  * Package: MW Automatic Theme Plugin Update
  *
  * Original Author: jeremyclark13, Kaspars Dambis (kaspars@konstruktors.com)
  * https://github.com/jeremyclark13/automatic-theme-plugin-update
  *
- * License: GPL2
+ * License: GPLv2
  *
  * Copyright 2014 Takashi Kitajima (email : inc@2inc.org)
  *
@@ -50,31 +50,35 @@ class ATPU_Plugin {
 
 	public function check_for_plugin_update( $checked_data ) {
 		global $wp_version;
+		$plugin_name = $this->plugin_slug . '/' . $this->plugin_slug . '.php';
 
-		if ( empty( $checked_data->checked ) )
-			return $checked_data;
+		if ( !empty( $checked_data->checked ) &&
+			 is_array( $checked_data->checked ) &&
+			 isset( $checked_data->checked[$plugin_name] ) ) {
 
-		$args = array(
-			'slug' => $this->plugin_slug,
-			'version' => $checked_data->checked[$this->plugin_slug . '/' . $this->plugin_slug . '.php'],
-		);
-		$request_string = array(
-			'body' => array(
-				'action' => 'basic_check',
-				'request' => serialize( $args ),
-				'api-key' => md5( home_url() ),
-			),
-			'user-agent' => 'WordPress/' . $wp_version . '; ' . home_url(),
-		);
-		$raw_response = wp_remote_post( $this->api_url, $request_string );
-		if ( !is_wp_error( $raw_response ) && $raw_response['response']['code'] == 200 && is_serialized( $raw_response['body'] ) ) {
-			$response = unserialize( $raw_response['body'] );
+			$args = array(
+				'slug' => $this->plugin_slug,
+				'version' => $checked_data->checked[$plugin_name],
+			);
+			$request_string = array(
+				'body' => array(
+					'action' => 'basic_check',
+					'request' => serialize( $args ),
+					'api-key' => md5( home_url() ),
+				),
+				'user-agent' => 'WordPress/' . $wp_version . '; ' . home_url(),
+			);
+			$raw_response = wp_remote_post( $this->api_url, $request_string );
+			if ( !is_wp_error( $raw_response ) && $raw_response['response']['code'] == 200 && is_serialized( $raw_response['body'] ) ) {
+				$response = unserialize( $raw_response['body'] );
+			}
+
+			if ( isset( $response ) && is_object( $response ) && !empty( $response ) ) {
+				$checked_data->response[$this->plugin_slug . '/' . $this->plugin_slug . '.php'] = $response;
+			} else {
+				unset( $checked_data->response[$this->plugin_slug . '/' . $this->plugin_slug . '.php'] );
+			}
 		}
-
-		if ( isset( $response ) && is_object( $response ) && !empty( $response ) ) {
-			$checked_data->response[$this->plugin_slug . '/' . $this->plugin_slug . '.php'] = $response;
-		}
-
 		return $checked_data;
 	}
 
