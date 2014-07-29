@@ -2,16 +2,16 @@
 /**
  * Name: MW Automatic Theme Plugin Update
  * Description:
- * Version: 1.0.0
+ * Version: 1.0.2
  * Author: Takashi Kitajima
  * Author URI: http://2inc.org
  * Created : February 18, 2014
- * Modified:
+ * Modified: July 29, 2014
  *
  * Original Author: jeremyclark13, Kaspars Dambis (kaspars@konstruktors.com)
  * https://github.com/jeremyclark13/automatic-theme-plugin-update
  *
- * License: GPL2
+ * License: GPLv2
  *
  * Copyright 2014 Takashi Kitajima (email : inc@2inc.org)
  *
@@ -83,6 +83,7 @@ class Automatic_Theme_Plugin_Update {
 			case 'plugin_information' :
 				$data = new stdClass;
 				$data->slug = $args->slug;
+				$data->name = $latest_package['name'];
 				$data->version = $latest_package['version'];
 				$data->last_updated = $latest_package['date'];
 				$data->download_link = $latest_package['package'];

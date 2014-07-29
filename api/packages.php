@@ -72,6 +72,11 @@ $packages['your-plugin-slug'] = array(
 			'version' => '1.0',
 
 			/**
+			 * Plugin Name
+			 */
+			'name' => 'Plugin Name',
+
+			/**
 			 * Date version was released
 			 */
 			'date' => '2010-04-10',
